@@ -3,7 +3,7 @@ RETURNS void
 LANGUAGE plpgsql AS $$
 BEGIN 
    DELETE FROM cloud_releases 
-   WHERE releases.song_id IN 
-      (SELECT releases.song_id from releases where releases.release_place is NULL);
+   WHERE cloud_releases.song_id IN 
+      (SELECT releases.song_id from cloud_releases where cloud_releases.release_place is NULL);
 END;
 $$;
