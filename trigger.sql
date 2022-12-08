@@ -1,8 +1,3 @@
-CREATE TRIGGER cloud_genre_name_insert 
-AFTER INSERT ON cloud_genres
-FOR EACH ROW 
-EXECUTE FUNCTION lower_genre_name();
-
 CREATE OR REPLACE FUNCTION lower_genre_name() RETURNS trigger AS
 $$
      BEGIN
@@ -12,3 +7,9 @@ $$
       RETURN NULL;
      END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER cloud_genre_name_insert 
+AFTER INSERT ON cloud_genres
+FOR EACH ROW 
+EXECUTE FUNCTION lower_genre_name();
+
