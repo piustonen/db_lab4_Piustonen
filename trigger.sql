@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION lower_genre_name() RETURNS trigger AS
 $$
      BEGIN
-          UPDATE genres 
+          UPDATE cloud_genres 
           SET genre_name = LOWER(genre_name) 
 		  WHERE cloud_genres.genre_id = NEW.genre_id; 
       RETURN NULL;
